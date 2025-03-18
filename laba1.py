@@ -1,15 +1,6 @@
 import csv
 
 def build_chain(blocks_file, votes_file, output_file):
-    """
-    Побудова ланцюга з блоків та голосів, використовуючи CSV файли.
-
-    Args:
-        blocks_file (str): Шлях до CSV файлу з блоками.
-        votes_file (str): Шлях до CSV файлу з голосами.
-        output_file (str): Шлях до CSV файлу для виведення ланцюга.
-    """
-
     blocks = {}
     with open(blocks_file, 'r') as file:
         reader = csv.DictReader(file)
@@ -41,12 +32,12 @@ def build_chain(blocks_file, votes_file, output_file):
         writer.writeheader()
         writer.writerows(chain)
 
-# Приклад використання
+
 blocks_file = 'blocks.csv'
 votes_file = 'votes.csv'
 output_file = 'chain.csv'
 
-# Створення прикладів CSV файлів
+
 with open(blocks_file, 'w', newline='') as file:
     writer = csv.DictWriter(file, fieldnames=['id', 'view'])
     writer.writeheader()
